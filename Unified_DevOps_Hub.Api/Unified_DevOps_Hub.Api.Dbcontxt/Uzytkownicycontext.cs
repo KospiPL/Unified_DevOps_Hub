@@ -1,12 +1,12 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Unified_DevOps_Hub.Api.Controllers;
 using Microsoft.Extensions.Configuration;
+using Unified_DevOps_Hub.Class;
 
 namespace Unified_DevOps_Hub.Api.Unified_DevOps_Hub.Api.Dbcontxt
 {
     public class UzytkownicyContext : DbContext
     {
-        public DbSet<Uzytkownicy> Uzytkownicy { get; set; }
+        public DbSet<Użytkownicy> Użytkownicy { get; set; }
 
         private readonly IConfiguration _configuration;
 
@@ -19,5 +19,47 @@ namespace Unified_DevOps_Hub.Api.Unified_DevOps_Hub.Api.Dbcontxt
             var connectionString = _configuration.GetConnectionString("DevOpsHubDatabase");
             optionsBuilder.UseSqlServer(connectionString);
         }
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            // Definicja klucza głównego
+            modelBuilder.Entity<Użytkownicy>()
+                .HasKey(u => u.Id_Użytkownika);
+
+            modelBuilder.Entity<Użytkownicy>()
+                .Property(u => u.Imie)
+                .IsRequired()
+                .HasMaxLength(50);
+
+            modelBuilder.Entity<Użytkownicy>()
+                .Property(u => u.Nazwisko)
+                .IsRequired()
+                .HasMaxLength(50);
+
+            modelBuilder.Entity<Użytkownicy>()
+                .Property(u => u.Login)
+                .IsRequired()
+                .HasMaxLength(50);
+
+            modelBuilder.Entity<Użytkownicy>()
+                .Property(u => u.Haslo)
+                .IsRequired()
+                .HasMaxLength(100);
+
+            modelBuilder.Entity<Użytkownicy>()
+                .Property(u => u.Email)
+                .IsRequired()
+                .HasMaxLength(100);
+
+            modelBuilder.Entity<Użytkownicy>()
+                .Property(u => u.Miejscowosc)
+                .HasMaxLength(100);
+
+            modelBuilder.Entity<Użytkownicy>()
+                .Property(u => u.Dział)
+                .HasMaxLength(100);
+
+        }
     }
 }
+    
+
