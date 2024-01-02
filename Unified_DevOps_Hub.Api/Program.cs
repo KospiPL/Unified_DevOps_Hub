@@ -1,11 +1,17 @@
+using Microsoft.AspNetCore.Builder;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
-using Unified_DevOps_Hub.Api.Unified_DevOps_Hub.Api.Dbcontxt;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
+using Unified_DevOps_Hub.Api.Unified_DevOps_Hub.Api.Dbcontxt; 
 
 var builder = WebApplication.CreateBuilder(args);
 
+// Dodanie DbContext do us³ug
+builder.Services.AddDbContext<UzytkownicyContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("UzytkownicyContext")));
+
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
@@ -17,15 +23,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
-public void ConfigureServices(IServiceCollection services)
-{
-    services.AddDbContext<UzytkownicyContext>(options =>
-    options.UseSqlServer(Configuration.GetConnectionString("UzytkownicyContext");
-}
+
 app.UseHttpsRedirection();
-
 app.UseAuthorization();
-
 app.MapControllers();
-
 app.Run();
