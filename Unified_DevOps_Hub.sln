@@ -5,6 +5,10 @@ VisualStudioVersion = 17.7.34221.43
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unified_DevOps_Hub", "Unified_DevOps_Hub\Unified_DevOps_Hub.csproj", "{434EB7D7-0702-4316-B734-CE3566889285}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unified_DevOps_Hub.Class", "Unified_DevOps_Hub.Class\Unified_DevOps_Hub.Class.csproj", "{34B9F0F4-D05D-4FB3-B9EA-EA4E014477B4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unified_DevOps_Hub.Api", "Unified_DevOps_Hub.Api\Unified_DevOps_Hub.Api.csproj", "{0A4B54E3-1B59-4EC2-8A7D-C98AFFD05EA2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,6 +21,14 @@ Global
 		{434EB7D7-0702-4316-B734-CE3566889285}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{434EB7D7-0702-4316-B734-CE3566889285}.Release|Any CPU.Build.0 = Release|Any CPU
 		{434EB7D7-0702-4316-B734-CE3566889285}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{34B9F0F4-D05D-4FB3-B9EA-EA4E014477B4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{34B9F0F4-D05D-4FB3-B9EA-EA4E014477B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{34B9F0F4-D05D-4FB3-B9EA-EA4E014477B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{34B9F0F4-D05D-4FB3-B9EA-EA4E014477B4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0A4B54E3-1B59-4EC2-8A7D-C98AFFD05EA2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0A4B54E3-1B59-4EC2-8A7D-C98AFFD05EA2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0A4B54E3-1B59-4EC2-8A7D-C98AFFD05EA2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0A4B54E3-1B59-4EC2-8A7D-C98AFFD05EA2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
