@@ -14,8 +14,11 @@ namespace Unified_DevOps_Hub.Class
 
         public string Nazwisko { get; set; }
 
+        [Required]
         public string Login { get; set; }
 
+        [Required]
+        [DataType(DataType.Password)]
         public string Haslo { get; set; }
 
         public DateTime Data_Urodzenia { get; set; }

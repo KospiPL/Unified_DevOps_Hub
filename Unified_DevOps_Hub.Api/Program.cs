@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Unified_DevOps_Hub.Api.Unified_DevOps_Hub.Api.Dbcontxt; 
+using Unified_DevOps_Hub.Class;
 
 var builder = WebApplication.CreateBuilder(args);
 

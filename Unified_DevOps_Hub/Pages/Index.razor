@@ -1,11 +1,16 @@
 ﻿@page "/"
 
+@using Unified_DevOps_Hub.Class
+@inject UzytkownicyContext _context
+
+
+
 <div class="main-container">
     <div class="login-form">
         <h2>Logowanie</h2>
-        <EditForm Model="loginModel">
-            <InputText id="username" @bind-Value="loginModel.Username" placeholder="Nazwa użytkownika" />
-            <InputText type="password" id="password" @bind-Value="loginModel.Password" placeholder="Hasło" />
+        <EditForm Model="@użytkownik" OnValidSubmit="@HandleLogin">
+            <InputText id="loginOrEmail" @bind-Value="loginOrEmail" placeholder="Login lub Email" />
+            <InputText type="password" id="password" @bind-Value="użytkownik.Haslo" placeholder="Hasło" />
             <button type="submit">Zaloguj się</button>
         </EditForm>
     </div>
@@ -59,17 +64,32 @@
 </style>
 
 @code {
-    private LoginModel loginModel = new LoginModel();
-
-    public class LoginModel
-    {
-        public string Username { get; set; }
-        public string Password { get; set; }
-    }
-
-   
+    
+    private Użytkownicy użytkownik = new Użytkownicy();
+    private string loginOrEmail;
     private void HandleLogin()
     {
-        // Logowanie...
+        var user = new Użytkownicy();
+        // Sprawdź, czy loginOrEmail zawiera '@', jeśli tak, traktuj jako email
+        if (loginOrEmail.Contains("@"))
+        {
+            // Wyszukaj użytkownika po emailu
+            user = _context.Użytkownicy.FirstOrDefault(u => u.Email == loginOrEmail);
+        }
+        else
+        {
+            // Wyszukaj użytkownika po loginie
+            user = _context.Użytkownicy.FirstOrDefault(u => u.Login == loginOrEmail);
+        }
+
+        if (user != null && user.Haslo == użytkownik.Haslo) // Należy użyć bezpiecznego porównywania haseł
+        {
+            // Użytkownik zalogowany pomyślnie
+            // Tutaj implementuj logikę po zalogowaniu
+        }
+        else
+        {
+            // Błąd logowania
+        }
     }
 }
