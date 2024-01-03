@@ -2,7 +2,6 @@
 using Unified_DevOps_Hub;
 using System.Linq;
 using Unified_DevOps_Hub.Class;
-using Unified_DevOps_Hub.Api.Unified_DevOps_Hub.Api.Dbcontxt;
 using Microsoft.EntityFrameworkCore;
 
 namespace Unified_DevOps_Hub.Controllers

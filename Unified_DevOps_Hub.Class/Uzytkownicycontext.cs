@@ -1,8 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
-using Unified_DevOps_Hub.Class;
 
-namespace Unified_DevOps_Hub.Api.Unified_DevOps_Hub.Api.Dbcontxt
+
+namespace Unified_DevOps_Hub.Class
 {
     public class UzytkownicyContext : DbContext
     {
